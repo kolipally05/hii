@@ -1,0 +1,208 @@
+configuration means --> jdk, setting environment paths,variables etc..
+and appln dependencies
+
+deployment means it resembles like applications on targeted hosts
+(hosts are nothing but which we mention in inventories)
+
+Task automation --> repetitive tasks are can be automated through this playbooks 
+at a time on number of hosts
+
+
+we know the difficulty 
+apache as s/w 
+can have 100 systems 
+reduce the manual effort
+
+not platform independent
+idempotency(the s/w is already there and scripts we will get error)_
+Human errors are possible
+Depency with scripts
+
+communiction with pem and ppk
+ssh 
+agnetless
+contoller and node
+
+
+I’ve been able to configure webservers, databases, certs, 
+repositories / deployment pipelines, user configuration … etc.
+
+---------------------------------------------------------------
+CONNECTIONS
+============
+linux to linux (ssh) 22
+linux to windows (winrm) 5986 or 5985
+ssh keygen 
+public key
+decrypt public key --> private key
+
+IN WINDOWS(node)
+windows setup
+winrm enumerate
+
+LINUX(mster - ansible isinstalled)
+vi etc/hosts - nodeip
+vi etc/ansible/hosts - nodeip
+install winrm
+telnet nodeip 5986 
+ansible windows -m all ping
+
+[windows] --groupname
+272.387.1.1
+
+----------------------------------------------------------------
+SWITCHING TO USER
+1.su - ansadmin
+2.pip3 install ansible --user
+3.ansible --version
+4.sudo mkdir /etc/ansible
+5.cd /etc/ansible
+6.sudo touch hosts
+---------------------------------------------------------------
+------------------------------------
+QUESTIONS
+------------------------------
+INstallation of apache
+---
+- hosts: linux
+  tasks:
+      name: install apache*
+      yum: 
+	  name=apache 
+	  state=latest 
+-------------------------------
+INstallation of chrome browser
+- name: Installing chrome
+  win_chocolatey:
+    name: google chrome
+    state: present
+---------------------------------
+EXample1:
+ name: Install multiple packages sequentially
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  loop:
+  - procexp
+  - putty
+  - windirstat
+----------------------------------------
+COPYING A FILE USING win_copy
+- name: Copy a single file
+  win_copy:
+    src: /srv/myfiles/foo.conf
+    dest: c:\Temp\renamed-foo.conf
+-----------------------------------------
+CREATION OF ROLES
+ansible-galaxy init rolename --> syntax
+ansible-galaxy --> public repo for roles
+init --> create a basic skeleton
+use tree to see the structure of the role (just type tree after creating role)
+ansible-galaxy list --> to know the how many roles
+ansible-galaxy remove rolename --> to remove a role
+--------------------------------------------------
+win_chocolatey 
+--> This is a module which is repo can download the applications
+
+win_package
+--> This module installs.exe installer from a local/n/w path (MSI and exe format)
+win_command(batch file or executables)
+--> This module to run an installer manually
+win_shell(used for execution of multi line commands)
+--> This is used to execute commands in shell
+win_updates 
+--> can be used for installing updates
+
+- name: Install only security updates as a scheduled task for Server 2008
+  win_updates:
+    category_names: SecurityUpdates
+    use_scheduled_task: yes
+---------------------------------------------------------------
+TASKS
+============
+TASK1
+java installation on windows --playbook
+TASK2
+java validation whether java is present or not --playboook
+TASK3
+Use debug and fail for copy playbook
+TASK4
+create a role for google chrome and have a common inventory outside and execute it.
+----------------------------------------------------------------
+AWX INSTALLATION
+-----------------
+PREREQUISITE
+1.m3.medium or large
+2.20Gb hard disk
+3.Any platform
+4. 2GB RAM (4+ GB RAM recommended) is required.
+
+Ansible project offers open source ansible tower --awx
+Perhaps the greatest benefit of AWX over Tower is that you have all of the enterprise features for an unlimited number of nodes. 
+You are not limited by the free ’10-node’ limit for --> Ansible Tower(Before)
+AWX- free open source
+Ansible Tower- licensed, only 1 month free,(3 types-->1.SELF SUPPORT(free trail) , 2.STANDARD, 3.PREMIMUM)
+AWX--> GUI,(Manage upto unlimited no of Nodes),RBAC,Centralized management,port no- 8080
+Manage the whole dashboard(inv,projects,users,jobs,teams......)
+Allows you to control access and allows sharing of SSH credentials without someone being able to transfer those credentials
+-------------
+PROCESS
+-------------
+step1: Stop Firewall,Selinux(systemctl)
+step2: yum updated with epel packages(yum install epel-release -y)
+step3: docker,dependency packages,through github
+step4: Ensure the docker service status
+step5: Download AWX packages from github
+----------------------------------------------------------------
+WHILE INSTALLING AWX CHECK FOLLOWING STEPS ALSO
+
+
+ 5  dnf install epel-release -y
+    6  dnf install git gcc gcc-c++ nodejs gettext device-mapper-persistent-data                                                                                         lvm2 bzip2 python3-pip
+    7  clear
+    8  dnf config-manager --add-repo=https://download.docker.com/linux/centos/do                                                                                        cker-ce.repo
+    9  dnf install docker-ce-3:18.09.1-3.el7
+   10  docker --version
+   11  systemctl start docker
+   12  systemctl enable --now docker.service
+   13  alternatives --set python /usr/bin/python3
+   14  pip3 install docker-compose
+   15  git clone https://github.com/ansible/awx.git
+   16  clear
+   17  ls
+   18  cd awx/installer/
+   19  vi inventory
+   20  openssl rand -base64 30
+   21  vi inventory
+   22  grep -v '^#' inventory | grep -v '^$'
+   23  ansible-playbook -i inventory install.yml
+    24  redis               latest              f9b990972689        5 days ago                                                                                                  104MB
+   25  memcached           alpine              321b3ac8a812        12 days ago                                                                                                 9.24MB
+   26  ls
+   27  clear
+   28  cd awx
+   29  find awx
+   30  find ./ awx
+   31  history
+   32  cd ../
+   33  history
+   34  ansible --version
+   35  sudo su -
+   36  uname -a
+   37  uname -r
+   38  netstat -anultp
+   39  df -h
+   40  df -Th
+
+
+
+
+
+
+
+
+
+
+
+
+

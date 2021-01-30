@@ -1,0 +1,32 @@
+Ansible Tower:
+
+
+-> It is a web based solution that makes ansible very easy to use all kinds of IT teams
+
+-> Allows you to control access and allows sharing of SSH credentials without someone being able to transfer those credentials
+
+-> provides command line tools for easy integration with jenkins ans also provides great support for autoscaling 
+      ##(In networking, topology refers to the layout of a computer network. ... Physical topology means the placement of the elements of the network, including the location of the devices or the layout of the cables. Logical topology maps the flow of data, regardless of the physical layout.)
+
+->Inventory can graphically managed or synced with a wide variety of cloud services
+
+----------------------------------------------
+
+  Ansible Tower is restful api and a webbased user interface were ansible which provides a framework for running ansible inside
+
+
+****** -> its a just webbased user interafce through which you can run an super inside your enter
+
+
+------------------
+What is Ansible Tower?
+Ansible Tower is Ansible at a more enterprise level. It is a web-based solution for managing your organization with a very easy user interface that provides a dashboard with all of the state summaries of all the hosts, allows quick deployments, and monitors all configurations.
+
+The tower allows you to share the SSH credentials without exposing them, logs all the jobs, manage inventories graphically and syncs them with a wide variety of cloud providers.
+
+-----------------------------
+PARAMETERS:
+           -> tower editions
+           ->  tower pricing
+            -> tower features
+

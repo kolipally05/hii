@@ -1,0 +1,127 @@
+    ANSIBLE:
+
+* Ansible is an open source tool
+
+* Ansible is used to create Infrastructures(small and medium)
+
+* Ansible is an configuration management tool
+
+* configuration management means maintains the number of machines with automation (100's and 1000's)
+
+maintains?
+
+It maintains the system resources such as 
+
+-> Install a application
+
+-> configuration
+
+-> updates
+
+-> maintain and soon
+
+ why configuration management tool?
+
+ -> Reduce management complexity
+ -> save time
+
+
+----------------------------------------------
+Infrastructure as a code:
+
+with the code csn manage thr Infrastructure
+
+----------------------------------
+
+-> Ansible is great at provisioning Infrastructures
+
+-----------------------------
+
+configuration management tools:
+
+  puppet-> 2005  (pull based mechanism)
+  
+  chef-> 2004 (pull based mechanim)
+
+  ansible -> 2011 (push based mechanism)
+
+------------------------------------------------------
+
+Advantages:
+
+-> Free: It is open source tool
+
+-> very simple to setup and use: No special coding skills are mecessary 
+iou
+-> Agentless:
+dont need to install any other extra softwares
+No agent to install or update
+Industry standard SSH or WinRM
+No additional firewall rules
+
+-> powerful : Ansible lets you model even highly complex IT workflows
+
+Configuration Management-> consistency of all systems in the infrastructure is maintained
+Application deployment-> Applications are deployed automatically on variety of environents
+Cloud provisioning
+Workflow orchestration
+
+
+
+-> efficient:  dont need to install any other extra softwares
+
+
+why Ansible?
+
+-> This is mohan, a system administrator. I am responsible for all the servers for  my companys infrastructure
+ for example there are 3 web servers and  2 database servers
+ i want to install apache on 3 web servers and sql on 2 database servers
+what if number of servers increases?
+the same task must be repeated multiple times.moreever humans are prone to make errors...This is where ansible comes into rescue
+
+with ansible a code is written once and deployed multiple times
+
+
+
+----------------
+The difference between automation and orchestration
+
+So, while automation refers to a single task, orchestration arranges tasks to optimize
+a workflow. For example, orchestrating an app means not only deploying an
+application, but also connecting it to the network so it can communicate with users and other apps.
+
+--------------------------------------------
+Disadvantages of Ansible
+
+Insufficient User Interface:
+
+Ansible was initially a command-line only tool. 
+The first effort of Ansible at making a user interface was with AWX graphical user interface.
+Subsequently, the AWX turned into the Ansible Tower, which is a web management UI.
+Ansible Tower offers visual management features and a team-based workflow instrument.
+However, the Ansible Tower requires considerable improvements. 
+For example, almost 85% of tasks that could be completed through the command line can be achieved through the UI. 
+
+----------------------------
+module?
+ module is a collection of configuration code files
+ Thsese configuration code files are called playbooks
+ Inventory is a document that groups the nodes under specific lables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
